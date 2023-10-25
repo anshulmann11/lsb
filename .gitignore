@@ -1,0 +1,45 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# Optional: OS and IDE files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+
+# Compiled output
+dist/
+out/
+build/
+bundle/
+
+# Build and configuration files
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+*.pem
+
+# Optional: Editor/IDE-specific files
+.vscode/
+.idea/
+
+# Optional: Test directories
+__tests__
+test
+tests
+
+# Optional: Coverage directory
+coverage/
+
+# Prisma
+.prisma/
+migrations/
+
+# Generated Prisma Client
+node_modules/@prisma/client/
