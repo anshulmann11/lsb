@@ -1,0 +1,34 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
+  name         String?
+  organizations UserOrganization[]
+}
+
+model Organization {
+  id   Int    @id @default(autoincrement())
+  name String
+  users UserOrganization[]
+}
+
+model UserOrganization {
+  id            Int      @id @default(autoincrement())
+  user          User     @relation(fields: [userId], references: [id])
+  userId        Int
+  organization  Organization @relation(fields: [organizationId], references: [id])
+  organizationId Int
+  role          String?
+  // Add more fields as needed for permissions, e.g., read, write, admin, etc.
+
+   @@unique([userId, organizationId]) // Define the composite index here
+}
